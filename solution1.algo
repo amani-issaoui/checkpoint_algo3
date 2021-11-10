@@ -1,0 +1,32 @@
+PROCEDURE dot_product(var v1,v2:vector)
+VAR
+    ps:FLOAT;
+BEGIN
+    ps=(v1.x*v2.x)+(v1.y*v2.y);
+    write(ps);
+END
+ALGORITHM orthogonal
+VAR
+    vector :	STRUCT
+                        x : FLOAT;
+                        y : FLOAT;
+                    END_STRUCT
+      tab : ARRAY_OF vector[10]; 
+      i,j:INTEGER;
+
+BEGIN
+    FOR i FROM 0 TO tab.length-1 STEP step  DO
+        read(tab[i]);
+    END_FOR
+FOR i FROM 0 TO tab.length-1 STEP step  DO
+    
+ FOR j FROM i+1 TO tab.length-1 STEP step  DO
+    IF (dot_product(tab[i],tab[j])==0) THEN
+        write("les deux vecteurs" + tab[i]+"et" +tab[j]+ "sont orthogonals");
+    ELSE
+         write("les deux vecteurs" + tab[i]+"et" +tab[j]+ "ne sont pas orthogonals");
+    END_IF
+ 
+END_FOR
+END_FOR
+END
